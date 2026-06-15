@@ -1,13 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 
 const categories = [
   "All",
   "UI/UX Design",
   "WordPress Dev",
-  "Front-End Dev",
-  "Laravel Dev",
 ] as const;
 
 type Category = (typeof categories)[number];
@@ -16,56 +15,58 @@ type WorkCategory = Exclude<Category, "All">;
 const works: {
   title: string;
   category: WorkCategory;
-  imageSeed: string;
-  accent: "light" | "dark";
+  imageSrc: string;
+  imageWidth: number;
+  imageHeight: number;
+  link: string;
 }[] = [
   {
-    title: "Neon Interface",
+    title: "Surigao RSP Mockup",
     category: "UI/UX Design",
-    imageSeed: "burgundy-uiux-1",
-    accent: "dark",
+    imageSrc: "/fw2.png",
+    imageWidth: 1024,
+    imageHeight: 945,
+    link: "https://www.figma.com/proto/lj2HzlFKI3SqwI8irkP30v/My-Recent-Projecs?node-id=1825-21045&p=f&t=r102swKGgE6JSqDl-1&scaling=contain&content-scaling=fixed&page-id=1825%3A17483&starting-point-node-id=1825%3A21045",
   },
   {
-    title: "Mobile Rewards Flow",
+    title: "Rewards System Mockup",
     category: "UI/UX Design",
-    imageSeed: "burgundy-uiux-2",
-    accent: "light",
+    imageSrc: "/fww2.png",
+    imageWidth: 1027,
+    imageHeight: 945,
+    link: "https://www.figma.com/proto/lj2HzlFKI3SqwI8irkP30v/My-Recent-Projecs?node-id=1777-32087&p=f&t=tkVRzwPrT0aJzSxz-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1777%3A32070&show-proto-sidebar=1",
   },
   {
-    title: "Editorial CMS",
+    title: "Rewards System Admin Mockup",
+    category: "UI/UX Design",
+    imageSrc: "/RewardsAdmin.png",
+    imageWidth: 1024,
+    imageHeight: 945,
+    link: "https://www.figma.com/proto/lj2HzlFKI3SqwI8irkP30v/My-Recent-Projecs?node-id=1813-18022&p=f&t=CXYmPxIlcVh0QzZN-1&scaling=contain&content-scaling=fixed&page-id=1813%3A15142&starting-point-node-id=1813%3A18022",
+  },
+  {
+    title: "UP Mindanao",
     category: "WordPress Dev",
-    imageSeed: "burgundy-wordpress-1",
-    accent: "dark",
+    imageSrc: "/UPMindanao.png",
+    imageWidth: 1024,
+    imageHeight: 946,
+    link: "https://upmin.edu.ph/",
   },
   {
-    title: "Studio Landing Page",
+    title: "Provincial Government of Davao Occidental",
     category: "WordPress Dev",
-    imageSeed: "burgundy-wordpress-2",
-    accent: "light",
+    imageSrc: "/DavaoOcc.png",
+    imageWidth: 1024,
+    imageHeight: 948,
+    link: "https://davaooccidental.gov.ph/",
   },
   {
-    title: "Cyber Dashboard",
-    category: "Front-End Dev",
-    imageSeed: "burgundy-frontend-1",
-    accent: "light",
-  },
-  {
-    title: "Synth Theme",
-    category: "Front-End Dev",
-    imageSeed: "burgundy-frontend-2",
-    accent: "dark",
-  },
-  {
-    title: "Admin Portal",
-    category: "Laravel Dev",
-    imageSeed: "burgundy-laravel-1",
-    accent: "dark",
-  },
-  {
-    title: "Booking System",
-    category: "Laravel Dev",
-    imageSeed: "burgundy-laravel-2",
-    accent: "light",
+    title: "Explore Camiguin",
+    category: "WordPress Dev",
+    imageSrc: "/ExploreCamiguin.png",
+    imageWidth: 1024,
+    imageHeight: 982,
+    link: "https://explorecamiguin.poolreno.com/",
   },
 ];
 
@@ -84,7 +85,7 @@ export default function ExploreWorks() {
             Explore My Work
           </h2>
           <p className="text-sm text-base-400 mt-4 max-w-md mx-auto font-light">
-            A curated collection of interfaces, websites, and digital products.
+            A showcase of projects that demonstrates my ability to create clean, functional, and user-centered digital experiences.
           </p>
         </div>
 
@@ -113,14 +114,16 @@ export default function ExploreWorks() {
           {filteredWorks.map((work, index) => (
             <div
               key={work.title}
-              className="group neon-morphic rounded-2xl overflow-hidden cursor-pointer reveal"
+              className="group neon-morphic rounded-2xl overflow-hidden cursor-pointer transition-all duration-500"
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="relative overflow-hidden">
-                <img
-                  src={`https://picsum.photos/seed/${work.imageSeed}/400/400.jpg`}
+                <Image
+                  src={work.imageSrc}
                   alt={work.title}
-                  className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700 brightness-75 group-hover:brightness-90"
+                  width={work.imageWidth}
+                  height={work.imageHeight}
+                  className="h-auto w-full bg-base-900/50 object-contain transition-all duration-700 brightness-90 group-hover:scale-110 group-hover:brightness-100"
                 />
               </div>
               <div className="p-5">
@@ -131,15 +134,15 @@ export default function ExploreWorks() {
                   {work.title}
                 </h4>
                 <div className="flex items-center justify-between mt-4">
-                  <button
-                    className={`px-3 py-1.5 text-[9px] font-bold tracking-wider uppercase rounded-md transition-colors ${
-                      work.accent === "light"
-                        ? "bg-base-300 text-base-900 hover:bg-base-100"
-                        : "bg-base-700 text-base-200 hover:bg-base-600 border border-base-600/50"
-                    }`}
+                  <a
+                    href={work.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.24em] text-base-300 transition-colors duration-300 hover:text-base-100"
                   >
-                    View Work
-                  </button>
+                    View Project
+                    <span className="h-px w-7 bg-base-300/50 transition-all duration-300 group-hover:w-12 group-hover:bg-base-200" />
+                  </a>
                 </div>
               </div>
             </div>

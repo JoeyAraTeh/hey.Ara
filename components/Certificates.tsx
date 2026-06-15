@@ -5,17 +5,32 @@ const certifications = [
   {
     title: "Introduction to SQL",
     issuer: "Simplilearn",
-    icon: "lucide:milestone",
+    icon: "lucide:badge-check",
+    credentialUrl: "/SQLcert2.png",
   },
   {
     title: "Build Complete CMS Blog in PHP MySQL Bootstrap & PDO",
     issuer: "Udemy",
     icon: "lucide:badge-check",
+    credentialUrl: "/SQLcert.png",
   },
    {
-    title: "Front-End Development",
-    issuer: "Meta",
+    title: "Job Readiness Workshop",
+    issuer: "The Asia Foundation",
     icon: "lucide:badge-check",
+    credentialUrl: "SCH x HCDC - Post-Survey Form_Job Readiness Workshop - Joey Ara Teh.pdf",
+  },
+  {
+    title: "Post Mentorship Workshop",
+    issuer: "The Asia Foundation",
+    icon: "lucide:badge-check",
+    credentialUrl: "SCH x HCDC - Post-Survey Form_Post Mentorship Workshop- Joey Ara Teh.pdf",
+  },
+  {
+    title: "Software Development Training",
+    issuer: "Infosoft",
+    icon: "lucide:badge-check",
+    credentialUrl: "InternshipCert.jpg",
   },
 ];
 
@@ -52,13 +67,22 @@ export default function Certificates() {
                       Certified credential from {certificate.issuer}.
                     </p>
 
-                    <a
-                      href="#contact"
-                      className="mt-6 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.24em] text-base-300 transition-colors duration-300 hover:text-base-100"
-                    >
-                      View Cert
-                      <span className="h-px w-7 bg-base-300/50 transition-all duration-300 group-hover:w-12 group-hover:bg-base-200" />
-                    </a>
+                    {certificate.credentialUrl ? (
+                      <a
+                        href={certificate.credentialUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-6 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.24em] text-base-300 transition-colors duration-300 hover:text-base-100"
+                      >
+                        View Cert
+                        <span className="h-px w-7 bg-base-300/50 transition-all duration-300 group-hover:w-12 group-hover:bg-base-200" />
+                      </a>
+                    ) : (
+                      <span className="mt-6 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.24em] text-base-400/50">
+                        View Cert
+                        <span className="h-px w-7 bg-base-400/30" />
+                      </span>
+                    )}
                   </div>
                 </div>
               </article>

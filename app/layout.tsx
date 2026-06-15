@@ -12,7 +12,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Ara",
+  title: "hey.Ara",
   description: "I'm a UI/UX Designer and Front-End Developer",
 };
 
