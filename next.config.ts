@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  allowedDevOrigins: ["192.168.0.104"],
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: "export",
+  images: {
+    unoptimized: true,
+  },
+  basePath: "/hey.Ara",
+  assetPrefix: "/hey.Ara/",
 };
 
-export default nextConfig;
+module.exports = nextConfig;

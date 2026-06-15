@@ -139,7 +139,7 @@ await emailjs.send(
                   type="text"
                   required
                   className="w-full rounded-lg border border-base-300/10 bg-base-950/40 px-4 py-3 text-sm text-base-200 outline-none transition-colors duration-300 placeholder:text-base-400/40 focus:border-base-300/40"
-                  placeholder="Recruiter name"
+                  placeholder="Enter name"
                 />
               </label>
 
@@ -152,7 +152,7 @@ await emailjs.send(
                   type="email"
                   required
                   className="w-full rounded-lg border border-base-300/10 bg-base-950/40 px-4 py-3 text-sm text-base-200 outline-none transition-colors duration-300 placeholder:text-base-400/40 focus:border-base-300/40"
-                  placeholder="recruiter@company.com"
+                  placeholder="yourname@example.com"
                 />
               </label>
             </div>
@@ -166,7 +166,7 @@ await emailjs.send(
                 type="text"
                 required
                 className="w-full rounded-lg border border-base-300/10 bg-base-950/40 px-4 py-3 text-sm text-base-200 outline-none transition-colors duration-300 placeholder:text-base-400/40 focus:border-base-300/40"
-                placeholder="Portfolio inquiry"
+                placeholder="Write your subject"
               />
             </label>
 
