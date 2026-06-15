@@ -12,7 +12,7 @@ export default function FeaturedWorks() {
       category: "UI/UX Design",
       imageSrc: "/fw2.png",
       imageSeed: "Surigao RSP Mockup",
-      link: ""
+      link: "https://www.figma.com/proto/lj2HzlFKI3SqwI8irkP30v/My-Recent-Projecs?node-id=1825-21045&p=f&t=r102swKGgE6JSqDl-1&scaling=contain&content-scaling=fixed&page-id=1825%3A17483&starting-point-node-id=1825%3A21045"
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ export default function FeaturedWorks() {
       category: "UI/UX Design",
       imageSrc: "/fww2.png",
       imageSeed: "Rewards System Mockup",
-      link: ""
+      link: "https://www.figma.com/proto/lj2HzlFKI3SqwI8irkP30v/My-Recent-Projecs?node-id=1777-32087&p=f&t=tkVRzwPrT0aJzSxz-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1777%3A32070&show-proto-sidebar=1"
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ export default function FeaturedWorks() {
       category: "UI/UX Design",
       imageSrc: "/RewardsAdmin.png",
       imageSeed: "moody-dashboard",
-      link: ""
+      link: "https://www.figma.com/proto/lj2HzlFKI3SqwI8irkP30v/My-Recent-Projecs?node-id=1813-18022&p=f&t=CXYmPxIlcVh0QzZN-1&scaling=contain&content-scaling=fixed&page-id=1813%3A15142&starting-point-node-id=1813%3A18022"
     },
     {
       id: 4,
@@ -91,9 +91,6 @@ export default function FeaturedWorks() {
           </div>
         </div>
 
-        {/* ====================================================================
-            CAROUSEL CONTAINER
-        ==================================================================== */}
         <div className="relative h-[450px] md:h-[600px] flex items-center justify-center">
           {featuredProjects.map((project, index) => (
             <div 
@@ -146,8 +143,7 @@ export default function FeaturedWorks() {
                         event.preventDefault();
                       }
                     }}
-                    className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.24em] text-base-300 transition-colors duration-300 hover:text-base-100"
-                  >
+                    className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.24em] text-base-300 transition-colors duration-300 hover:text-base-100">
                     View Project
                     <span className="h-px w-7 bg-base-300/50 transition-all duration-300 group-hover:w-12 group-hover:bg-base-200" />
                   </a>
@@ -157,7 +153,7 @@ export default function FeaturedWorks() {
           ))}
         </div>
 
-        {/* Carousel Dots Indicator */}
+        {/* Carousel Indicator */}
         <div className="flex items-center justify-center gap-3 -mt-15">
           {featuredProjects.map((_, index) => (
             <button 
