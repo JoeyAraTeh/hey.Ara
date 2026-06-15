@@ -1,13 +1,7 @@
 import type { NextConfig } from "next";
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: "export",
-  images: {
-    unoptimized: true,
-  },
-  basePath: "/hey.Ara",
-  assetPrefix: "/hey.Ara/",
+const nextConfig: NextConfig = {
+  allowedDevOrigins: ["192.168.0.104"],
 };
 
-module.exports = nextConfig;
+export default nextConfig;
