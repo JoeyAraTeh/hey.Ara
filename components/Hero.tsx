@@ -41,7 +41,7 @@ export default function Hero() {
           <div className="relative reveal" style={{ transitionDelay: '400ms' }}>
             <div className="relative h-[60vh] md:h-[80vh] rounded-2xl overflow-hidden shadow-2xl shadow-black/30 border border-base-300/10">
               <Image 
-                src="/mee.jpg" 
+                src="/Me.jpg" 
                 alt="Joey Ara Teh" 
                 fill={true}
                 className="object-cover object-top hover:scale-105 transition-transform duration-1000 ease-out"
