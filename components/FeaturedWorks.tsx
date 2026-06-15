@@ -72,24 +72,18 @@ export default function FeaturedWorks() {
     <section id="featured-works" className="py-24 md:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
-        {/* ====================================================================
-            NEW EDITORIAL HEADER
-        ==================================================================== */}
         <div className="relative flex items-center justify-between mb-9 md:mb-14">
           
-          {/* Center Massive Watermark Text */}
           <h2 className="absolute inset-0 flex items-center justify-center font-serif text-5xl md:text-7xl lg:text-8xl font-semibold tracking-widest uppercase text-base-300/45 pointer-events-none select-none z-0">
             Projects
           </h2>
 
-          {/* Left Small Text */}
           <div className="relative z-10 reveal">
             <span className="text-[11px] font-bold tracking-[0.3em] uppercase text-base-300">
               Featured <br></br> Work
             </span>
           </div>
 
-          {/* Right Small Text */}
           <div className="relative z-10 text-right max-w-[200px] md:max-w-xs reveal" style={{ transitionDelay: '100ms' }}>
             <p className="text-sm font-light text-base-400 leading-relaxed">
               A few of my recent <br></br> works I&apos;m proud of!
