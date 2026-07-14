@@ -5,6 +5,7 @@ export default function TechStack() {
   const coreSkills = [
     { name: "UI/UX", detail: "Figma", icon: "simple-icons:figma" },
     { name: "Canva", detail: "Design", icon: "simple-icons:canva" },
+    { name: "Sketch", detail: "Design", icon: "simple-icons:sketch" },
     { name: "HTML", detail: "Markup", icon: "simple-icons:html5" },
     { name: "CSS", detail: "Styling", icon: "simple-icons:css" },
     { name: "React.js", detail: "UI", icon: "simple-icons:react" },
@@ -32,25 +33,25 @@ export default function TechStack() {
           </p>
         </div> */}
 
-        <div className="rounded-[2rem] border border-base-300/10 bg-base-950/55 p-6 shadow-2xl shadow-black/30 backdrop-blur-xl md:p-9">
+        <div className="rounded-[2rem] border border-base-300/10 bg-base-950/55 p-4 sm:p-6 shadow-2xl shadow-black/30 backdrop-blur-xl md:p-9">
           <div className="mb-10 reveal">
-            <h3 className="mb-6 text-sm font-bold tracking-[0.28em] uppercase text-base-300">
+            <h3 className="mb-5 md:mb-6 text-[11px] sm:text-sm font-bold tracking-[0.2em] sm:tracking-[0.28em] uppercase text-base-300">
               What I Work With
             </h3>
-            <div className="grid grid-cols-3 gap-x-5 gap-y-8 sm:grid-cols-4 md:grid-cols-8">
+            <div className="grid grid-cols-3 gap-x-3 gap-y-6 sm:gap-x-5 sm:gap-y-8 sm:grid-cols-4 md:grid-cols-8">
               {coreSkills.map((skill, index) => (
                 <div
                   key={skill.name}
                   className="reveal group flex flex-col items-center text-center"
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-base-300/10 bg-base-800/70 shadow-lg shadow-black/25 transition-all duration-500 group-hover:-translate-y-1 group-hover:border-base-300/35 group-hover:bg-base-700/60 group-hover:shadow-base-600/20">
-                    <Icon icon={skill.icon} width={34} className="text-base-300" />
+                  <div className="flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-xl sm:rounded-2xl border border-base-300/10 bg-base-800/70 shadow-lg shadow-black/25 transition-all duration-500 group-hover:-translate-y-1 group-hover:border-base-300/35 group-hover:bg-base-700/60 group-hover:shadow-base-600/20">
+                    <Icon icon={skill.icon} width={24} className="sm:w-[34px] sm:h-[34px] text-base-300" />
                   </div>
-                  <span className="mt-3 text-xs font-bold text-base-200">
+                  <span className="mt-2 sm:mt-3 text-[10px] sm:text-xs font-bold text-base-200">
                     {skill.name}
                   </span>
-                  <span className="mt-1 text-[10px] uppercase tracking-wide text-base-400">
+                  <span className="mt-1 text-[8px] sm:text-[10px] uppercase tracking-wide text-base-400">
                     {skill.detail}
                   </span>
                 </div>
@@ -59,20 +60,20 @@ export default function TechStack() {
           </div>
 
           <div className="reveal" style={{ transitionDelay: '250ms' }}>
-            <h3 className="mb-6 text-sm font-bold tracking-[0.28em] uppercase text-base-300">
+            <h3 className="mb-5 md:mb-6 text-[11px] sm:text-sm font-bold tracking-[0.2em] sm:tracking-[0.28em] uppercase text-base-300">
               Additional Knowledge
             </h3>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
               {additionalKnowledge.map((tech, index) => (
                 <div
                   key={tech.name}
-                  className="flex items-center gap-3 rounded-2xl border border-base-300/10 bg-base-800/45 px-4 py-4 transition-all duration-500 hover:border-base-300/30 hover:bg-base-800/70"
+                  className="flex items-center gap-2 sm:gap-3 rounded-xl sm:rounded-2xl border border-base-300/10 bg-base-800/45 px-3 py-3 sm:px-4 sm:py-4 transition-all duration-500 hover:border-base-300/30 hover:bg-base-800/70"
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-base-900/70">
-                    <Icon icon={tech.icon} width={24} className="text-base-300" />
+                  <div className="flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-base-900/70">
+                    <Icon icon={tech.icon} width={18} className="sm:w-6 sm:h-6 text-base-300" />
                   </div>
-                  <span className="text-sm font-medium leading-tight text-base-300">
+                  <span className="text-xs sm:text-sm font-medium leading-tight text-base-300">
                     {tech.name}
                   </span>
                 </div>
