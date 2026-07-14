@@ -72,33 +72,47 @@ export default function FeaturedWorks() {
     <section id="featured-works" className="py-24 md:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
-        <div className="relative flex items-center justify-between mb-9 md:mb-14">
-          
-          <h2 className="absolute inset-0 flex items-center justify-center font-serif text-5xl md:text-7xl lg:text-8xl font-semibold tracking-widest uppercase text-base-300/45 pointer-events-none select-none z-0">
-            Projects
-          </h2>
+        <div className="relative flex items-center justify-between mb-4 sm:mb-10 md:mb-14">
 
-          <div className="relative z-10 reveal">
-            <span className="text-[11px] font-bold tracking-[0.3em] uppercase text-base-300">
-              Featured <br></br> Work
-            </span>
-          </div>
+        <h2 className="absolute inset-0 flex items-center justify-center font-serif text-2xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold tracking-[0.12em] sm:tracking-[0.15em] uppercase text-base-300/45 pointer-events-none select-none z-0">
+          Projects
+        </h2>
 
-          <div className="relative z-10 text-right max-w-[200px] md:max-w-xs reveal" style={{ transitionDelay: '100ms' }}>
-            <p className="text-sm font-light text-base-400 leading-relaxed">
-              A few of my recent <br></br> works I&apos;m proud of!
-            </p>
-          </div>
+        <div className="relative z-10 reveal max-w-[80px] sm:max-w-none">
+          <span className="text-[11px] sm:text-sm font-light text-base-400 leading-tight sm:leading-relaxed">
+        Featured
+        <br className="sm:hidden" />
+        <span className="hidden sm:inline">&nbsp;</span>
+        Work
+        </span>
         </div>
 
-        <div className="relative h-[450px] md:h-[600px] flex items-center justify-center">
+        <p className="text-[11px] sm:text-sm font-light text-base-400 leading-tight sm:leading-relaxed text-right">
+        <span className="hidden sm:inline">
+          A few of my recent
+          <br />
+          works I'm proud of!
+        </span>
+
+        <span className="sm:hidden">
+          A few of my
+          <br />
+          works I'm
+          <br />
+          proud of!
+        </span>
+        </p>
+
+      </div>
+
+        <div className="relative h-[260px] sm:h-[380px] md:h-[500px] flex items-center justify-center">
           {featuredProjects.map((project, index) => (
             <div 
               key={project.id} 
               onClick={() => setActiveIndex(index)}
               className={`
                 absolute 
-                w-[260px] md:w-[420px] 
+                w-[220px] xs:w-[240px] sm:w-[260px] md:w-[420px]
                 aspect-[1024/945] 
                 rounded-2xl 
                 overflow-hidden 
@@ -111,7 +125,6 @@ export default function FeaturedWorks() {
                 ${getCardClass(index)}
               `}
             >
-              {/* Image */}
               <div className="relative w-full h-full overflow-hidden">
                 <img 
                   src={project.imageSrc ?? `https://picsum.photos/seed/${project.imageSeed}/800/1000.jpg`} 
@@ -121,40 +134,41 @@ export default function FeaturedWorks() {
                 <div className="absolute inset-0 bg-gradient-to-t from-base-900 via-base-900/10 to-transparent"></div>
               </div>
 
-              {/* Text Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 flex flex-col gap-4">
-                <div>
-                  <h4 className="font-serif text-3xl md:text-4xl font-semibold tracking-wide text-base-200 leading-tight">
-                    {project.title}
-                  </h4>
-                  <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-base-300 flex items-center gap-2">
-                    {project.category}
-                  </p>
-                </div>
-                
-                <div className="flex items-center justify-between pt-4 border-t border-base-300/10">
-                  <a
-                    href={project.link || undefined}
-                    aria-disabled={!project.link}
-                    onClick={(event) => {
-                      event.stopPropagation();
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+              <div className="flex justify-end mt-64">
+                <a
+                  href={project.link || undefined}
+                  aria-disabled={!project.link}
+                  onClick={(event) => {
+                    event.stopPropagation();
 
-                      if (!project.link) {
-                        event.preventDefault();
-                      }
-                    }}
-                    className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.24em] text-base-300 transition-colors duration-300 hover:text-base-100">
-                    View Project
-                    <span className="h-px w-7 bg-base-300/50 transition-all duration-300 group-hover:w-12 group-hover:bg-base-200" />
-                  </a>
-                </div>
+                    if (!project.link) {
+                      event.preventDefault();
+                    }
+                  }}
+                  className="inline-flex items-center gap-2 text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.18em] sm:tracking-[0.24em] text-base-300 transition-colors duration-300 hover:text-base-100"
+                >
+                  View Project
+                  <span className="h-px w-5 sm:w-7 bg-base-300/50 transition-all duration-300 group-hover:w-9 sm:group-hover:w-12 group-hover:bg-base-200" />
+                </a>
               </div>
+            </div>
             </div>
           ))}
         </div>
+        
+        <div className="-mt-4 mb-8 text-center transition-all duration-500">
+          <p className="text-[8px] sm:text-[10px] font-bold tracking-[0.18em] sm:tracking-[0.3em] uppercase text-base-300">
+            {featuredProjects[activeIndex].category}
+          </p>
+
+          <h3 className="mt-2 sm:mt-3 font-serif text-xl sm:text-2xl md:text-4xl font-semibold text-base-200 leading-tight px-4 sm:px-0">
+            {featuredProjects[activeIndex].title}
+          </h3>
+        </div>
 
         {/* Carousel Indicator */}
-        <div className="flex items-center justify-center gap-3 -mt-15">
+        <div className="flex items-center justify-center gap-3">
           {featuredProjects.map((_, index) => (
             <button 
               key={index} 

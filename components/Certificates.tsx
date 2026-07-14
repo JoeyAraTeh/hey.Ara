@@ -38,7 +38,7 @@ export default function Certificates() {
   return (
     <section id="certifications" className="relative py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6 md:px-12">
-        <h2 className="reveal mb-12 text-center font-serif text-4xl font-semibold tracking-wide text-base-200 text-glow-champagne md:text-6xl">
+        <h2 className="reveal mb-10 md:mb-12 text-center font-serif text-3xl sm:text-4xl md:text-6xl font-semibold tracking-wide text-base-200 text-glow-champagne">
           Certifications
         </h2>
 
@@ -51,19 +51,21 @@ export default function Certificates() {
             {certifications.map((certificate, index) => (
               <article
                 key={certificate.title}
-                className="reveal group relative min-h-44 px-7 py-8 transition-all duration-500 hover:bg-base-800/10 md:px-9 md:py-10"
+                className="reveal group relative min-h-36 sm:min-h-44 px-5 py-6 md:px-9 md:py-10 transition-all duration-500 hover:bg-base-800/10"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-start gap-5">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center text-base-400 transition-colors duration-500 group-hover:text-base-300">
-                    <Icon icon={certificate.icon} width={24} />
+                  <div className="flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center text-base-400 transition-colors duration-500 group-hover:text-base-300">
+                  <Icon
+                    icon={certificate.icon}
+                    className="w-5 h-5 sm:w-6 sm:h-6"/>
                   </div>
 
                   <div className="min-w-0">
-                    <p className="font-serif text-lg font-semibold leading-tight tracking-wide text-base-200">
+                    <p className="font-serif text-base sm:text-lg font-semibold leading-snug tracking-wide text-base-200">
                       {certificate.title}
                     </p>
-                    <p className="mt-2 text-xs font-light leading-relaxed text-base-400">
+                    <p className="mt-2 text-[11px] sm:text-xs font-light leading-relaxed text-base-400">
                       Certified credential from {certificate.issuer}.
                     </p>
 
@@ -72,15 +74,15 @@ export default function Certificates() {
                         href={certificate.credentialUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-6 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.24em] text-base-300 transition-colors duration-300 hover:text-base-100"
+                        className="mt-5 sm:mt-6 inline-flex items-center gap-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.18em] sm:tracking-[0.24em] text-base-300 transition-colors duration-300 hover:text-base-100"
                       >
                         View Cert
-                        <span className="h-px w-7 bg-base-300/50 transition-all duration-300 group-hover:w-12 group-hover:bg-base-200" />
+                        <span className="h-px w-5 sm:w-7 bg-base-300/50 transition-all duration-300 group-hover:w-10 sm:group-hover:w-12 group-hover:bg-base-200" />
                       </a>
                     ) : (
                       <span className="mt-6 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.24em] text-base-400/50">
                         View Cert
-                        <span className="h-px w-7 bg-base-400/30" />
+                        <span className="h-px w-5 sm:w-7 bg-base-400/30" />
                       </span>
                     )}
                   </div>
