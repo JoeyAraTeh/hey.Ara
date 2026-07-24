@@ -21,51 +21,59 @@ const works: {
   link: string;
 }[] = [
   {
+    title: "Mizu Matcha Mockup",
+    category: "UI/UX Design",
+    imageSrc: "/Mizu.png",
+    imageWidth: 1555,
+    imageHeight: 1024,
+    link: "https://www.figma.com/proto/0YclueoBl1CHpTN6XhFCKQ/Untitled?node-id=2018-164&p=f&t=ioQuFthQjaevTRfw-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
+  },
+  {
     title: "Surigao RSP Mockup",
     category: "UI/UX Design",
-    imageSrc: "/fw2.png",
-    imageWidth: 1024,
-    imageHeight: 945,
+    imageSrc: "/RSP.png",
+    imageWidth: 1555,
+    imageHeight: 1024,
     link: "https://www.figma.com/proto/lj2HzlFKI3SqwI8irkP30v/My-Recent-Projecs?node-id=1825-21045&p=f&t=r102swKGgE6JSqDl-1&scaling=contain&content-scaling=fixed&page-id=1825%3A17483&starting-point-node-id=1825%3A21045",
   },
   {
     title: "Rewards System Mockup",
     category: "UI/UX Design",
-    imageSrc: "/fww2.png",
-    imageWidth: 1027,
-    imageHeight: 945,
+    imageSrc: "/MobileApp.png",
+    imageWidth: 1555,
+    imageHeight: 1024,
     link: "https://www.figma.com/proto/lj2HzlFKI3SqwI8irkP30v/My-Recent-Projecs?node-id=1777-32087&p=f&t=tkVRzwPrT0aJzSxz-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1777%3A32070&show-proto-sidebar=1",
   },
   {
     title: "Rewards System Admin Mockup",
     category: "UI/UX Design",
-    imageSrc: "/RewardsAdmin.png",
-    imageWidth: 1024,
-    imageHeight: 945,
+    imageSrc: "/Admin.png",
+    imageWidth: 1555,
+    imageHeight: 1024,
     link: "https://www.figma.com/proto/lj2HzlFKI3SqwI8irkP30v/My-Recent-Projecs?node-id=1813-18022&p=f&t=CXYmPxIlcVh0QzZN-1&scaling=contain&content-scaling=fixed&page-id=1813%3A15142&starting-point-node-id=1813%3A18022",
   },
   {
     title: "UP Mindanao",
     category: "WordPress Dev",
-    imageSrc: "/UPMindanao.png",
-    imageWidth: 1024,
-    imageHeight: 946,
+    imageSrc: "/UP.png",
+    imageWidth: 1555,
+    imageHeight: 1024,
     link: "https://upmin.edu.ph/",
   },
   {
     title: "Provincial Government of Davao Occidental",
     category: "WordPress Dev",
-    imageSrc: "/DavaoOcc.png",
-    imageWidth: 1024,
-    imageHeight: 948,
+    imageSrc: "/DavOcc.png",
+    imageWidth: 1555,
+    imageHeight: 1024,
     link: "https://davaooccidental.gov.ph/",
   },
   {
     title: "Explore Camiguin",
     category: "WordPress Dev",
     imageSrc: "/ExploreCamiguin.png",
-    imageWidth: 1024,
-    imageHeight: 982,
+    imageWidth: 1555,
+    imageHeight: 1024,
     link: "https://explorecamiguin.poolreno.com/",
   },
 ];
@@ -117,7 +125,10 @@ export default function ExploreWorks() {
               className="group neon-morphic w-full max-w-[280px] sm:max-w-none mx-auto rounded-2xl overflow-hidden cursor-pointer transition-all duration-500"
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="relative aspect-[1024/945] overflow-hidden">
+              <div
+                className="relative overflow-hidden"
+                style={{ aspectRatio: `${work.imageWidth} / ${work.imageHeight}` }}
+              >
                 <Image
                   src={work.imageSrc}
                   alt={work.title}

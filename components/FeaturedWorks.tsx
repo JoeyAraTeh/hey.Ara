@@ -1,59 +1,84 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from 'react';
+
+type FeaturedProject = {
+  id: number;
+  title: string;
+  category: string;
+  imageSrc: string;
+  imageSeed: string;
+  imageWidth: number;
+  imageHeight: number;
+  link?: string;
+};
 
 export default function FeaturedWorks() {
   const [activeIndex, setActiveIndex] = useState(1); // Start with the middle card active
 
-  const featuredProjects = [
+  const featuredProjects: FeaturedProject[] = [
     {
       id: 1,
-      title: "Surigao RSP Mockup",
+      title: "Mizu Matcha",
       category: "UI/UX Design",
-      imageSrc: "/fw2.png",
-      imageSeed: "Surigao RSP Mockup",
-      link: "https://www.figma.com/proto/lj2HzlFKI3SqwI8irkP30v/My-Recent-Projecs?node-id=1825-21045&p=f&t=r102swKGgE6JSqDl-1&scaling=contain&content-scaling=fixed&page-id=1825%3A17483&starting-point-node-id=1825%3A21045"
+      imageSrc: "/Mizu.png",
+      imageSeed: "rose-circuit-app",
+      imageWidth: 1555,
+      imageHeight: 1024,
+      link: "https://www.figma.com/proto/0YclueoBl1CHpTN6XhFCKQ/Untitled?node-id=2018-164&p=f&t=ioQuFthQjaevTRfw-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1"
     },
     {
       id: 2,
-      title: "Rewards System Mockup",
+      title: "Surigao RSP Mockup",
       category: "UI/UX Design",
-      imageSrc: "/fww2.png",
-      imageSeed: "Rewards System Mockup",
-      link: "https://www.figma.com/proto/lj2HzlFKI3SqwI8irkP30v/My-Recent-Projecs?node-id=1777-32087&p=f&t=tkVRzwPrT0aJzSxz-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1777%3A32070&show-proto-sidebar=1"
+      imageSrc: "/RSP.png",
+      imageSeed: "Surigao RSP Mockup",
+      imageWidth: 1555,
+      imageHeight: 1024,
+      link: "https://www.figma.com/proto/lj2HzlFKI3SqwI8irkP30v/My-Recent-Projecs?node-id=1825-21045&p=f&t=r102swKGgE6JSqDl-1&scaling=contain&content-scaling=fixed&page-id=1825%3A17483&starting-point-node-id=1825%3A21045"
     },
     {
       id: 3,
-      title: "Rewards System Admin Mockup",
+      title: "Rewards System Mockup",
       category: "UI/UX Design",
-      imageSrc: "/RewardsAdmin.png",
-      imageSeed: "moody-dashboard",
-      link: "https://www.figma.com/proto/lj2HzlFKI3SqwI8irkP30v/My-Recent-Projecs?node-id=1813-18022&p=f&t=CXYmPxIlcVh0QzZN-1&scaling=contain&content-scaling=fixed&page-id=1813%3A15142&starting-point-node-id=1813%3A18022"
+      imageSrc: "/MobileApp.png",
+      imageSeed: "Rewards System Mockup",
+      imageWidth: 1555,
+      imageHeight: 1024,
+      link: "https://www.figma.com/proto/lj2HzlFKI3SqwI8irkP30v/My-Recent-Projecs?node-id=1777-32087&p=f&t=tkVRzwPrT0aJzSxz-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1777%3A32070&show-proto-sidebar=1"
     },
     {
       id: 4,
-      title: "UP Mindanao",
-      category: "Wordpress Development",
-      imageSrc: "/UPMindanao.png",
-      imageSeed: "velvet-orbit-brand",
-      link: "https://upmin.edu.ph/"
+      title: "Rewards System Admin Mockup",
+      category: "UI/UX Design",
+      imageSrc: "/Admin.png",
+      imageSeed: "moody-dashboard",
+      imageWidth: 1555,
+      imageHeight: 1024,
+      link: "https://www.figma.com/proto/lj2HzlFKI3SqwI8irkP30v/My-Recent-Projecs?node-id=1813-18022&p=f&t=CXYmPxIlcVh0QzZN-1&scaling=contain&content-scaling=fixed&page-id=1813%3A15142&starting-point-node-id=1813%3A18022"
     },
     {
       id: 5,
-      title: "Provincial Government of Davao Occidental",
+      title: "UP Mindanao",
       category: "Wordpress Development",
-      imageSrc: "/DavaoOcc.png",
-      imageSeed: "noir-atlas-site",
-      link: "https://davaooccidental.gov.ph/"
+      imageSrc: "/UP.png",
+      imageSeed: "velvet-orbit-brand",
+      imageWidth: 1555,
+      imageHeight: 1024,
+      link: "https://upmin.edu.ph/"
     },
     {
       id: 6,
-      title: "Explore Camiguin",
+      title: "Provincial Government of Davao Occidental",
       category: "Wordpress Development",
-      imageSrc: "/ExploreCamiguin.png",
-      imageSeed: "rose-circuit-app",
-      link: "https://explorecamiguin.poolreno.com/"
+      imageSrc: "/DavOcc.png",
+      imageSeed: "noir-atlas-site",
+      imageWidth: 1555,
+      imageHeight: 1024,
+      link: "https://davaooccidental.gov.ph/"
     },
+    
   ];
 
   const getCardClass = (index: number) => {
@@ -113,7 +138,6 @@ export default function FeaturedWorks() {
               className={`
                 absolute 
                 w-[220px] xs:w-[240px] sm:w-[260px] md:w-[420px]
-                aspect-[1024/945] 
                 rounded-2xl 
                 overflow-hidden 
                 cursor-pointer 
@@ -124,18 +148,23 @@ export default function FeaturedWorks() {
                 ease-in-out
                 ${getCardClass(index)}
               `}
+              style={{ aspectRatio: `${project.imageWidth} / ${project.imageHeight}` }}
             >
-              <div className="relative w-full h-full overflow-hidden">
-                <img 
-                  src={project.imageSrc ?? `https://picsum.photos/seed/${project.imageSeed}/800/1000.jpg`} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover brightness-85 group-hover:brightness-90 transition-transform duration-700" 
+              <div
+                className="relative w-full h-full overflow-hidden"
+              >
+                <Image
+                  src={project.imageSrc ?? `https://picsum.photos/seed/${project.imageSeed}/800/1000.jpg`}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 640px) 220px, (max-width: 768px) 240px, (max-width: 1024px) 260px, 420px"
+                  className="object-cover brightness-85 transition-all duration-700 group-hover:scale-110 group-hover:brightness-90"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-base-900 via-base-900/10 to-transparent"></div>
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
-              <div className="flex justify-end mt-64">
+              <div className="absolute inset-x-0 bottom-0 p-6 md:p-10">
+              <div className="flex justify-end">
                 <a
                   href={project.link || undefined}
                   aria-disabled={!project.link}
