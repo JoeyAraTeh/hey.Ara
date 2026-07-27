@@ -7,6 +7,7 @@ const categories = [
   "All",
   "UI/UX Design",
   "WordPress Dev",
+  "Front End Development",
 ] as const;
 
 type Category = (typeof categories)[number];
@@ -18,7 +19,7 @@ const works: {
   imageSrc: string;
   imageWidth: number;
   imageHeight: number;
-  link: string;
+  link?: string;
 }[] = [
   {
     title: "Mizu Matcha Mockup",
@@ -75,6 +76,20 @@ const works: {
     imageWidth: 1555,
     imageHeight: 1024,
     link: "https://explorecamiguin.poolreno.com/",
+  },
+  {
+    title: "Guys and Gals Project",
+    category: "Front End Development",
+    imageSrc: "/Guys%20and%20Gals%20proj.png",
+    imageWidth: 1555,
+    imageHeight: 1024,
+  },
+  {
+    title: "Sentra",
+    category: "Front End Development",
+    imageSrc: "/Sentra.png",
+    imageWidth: 1555,
+    imageHeight: 1024,
   },
 ];
 
@@ -146,9 +161,15 @@ export default function ExploreWorks() {
                 </h4>
                 <div className="flex items-center justify-between mt-4">
                   <a
-                    href={work.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={work.link ?? "#"}
+                    target={work.link ? "_blank" : undefined}
+                    rel={work.link ? "noopener noreferrer" : undefined}
+                    aria-disabled={!work.link}
+                    onClick={(event) => {
+                      if (!work.link) {
+                        event.preventDefault();
+                      }
+                    }}
                     className="inline-flex items-center gap-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.18em] sm:tracking-[0.24em] text-base-300 transition-colors duration-300 hover:text-base-100"
                   >
                     View Project
