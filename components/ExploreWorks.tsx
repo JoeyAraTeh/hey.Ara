@@ -74,7 +74,7 @@ const works: {
     imageSrc: "/ExploreCamiguin.png",
     imageWidth: 1555,
     imageHeight: 1024,
-    link: "https://explorecamiguin.poolreno.com/",
+    link: "https://explorecamiguin.com/",
   },
 ];
 
